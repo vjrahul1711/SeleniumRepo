@@ -10,7 +10,7 @@ class Main{
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.rummypassion.in");
         driver.manage().window().maximize();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
 
         driver.quit();
     }
