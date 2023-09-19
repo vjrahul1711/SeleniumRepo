@@ -1,6 +1,7 @@
 package SeleniumLearning;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
@@ -10,7 +11,7 @@ class Main{
 
     public static void main(String[] args) throws InterruptedException {
 
-        ChromeDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://preprodnew.rummypassion.com/");
         driver.manage().window().maximize();
         Thread.sleep(4000);
