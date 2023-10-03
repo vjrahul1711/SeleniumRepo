@@ -1,13 +1,16 @@
 package SeleniumLearning;
+import java.lang.System.*;
+import java.util.List;
 
 import common.configuration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class gameWindow {
 
-    public static void main (String [] args) throws InterruptedException {
+    public static  void main (String [] args) throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get(configuration.TEST_URL);
@@ -20,8 +23,12 @@ public class gameWindow {
         driver.findElement(By.id("lpassword")).sendKeys(configuration.PASSWORD);
         driver.findElement(By.xpath("/html/body/section[1]/div/form[1]/div[3]/div/button")).click();
         Thread.sleep(4000);
-        driver.switchTo().frame("10430");
-        driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/div[2]/div[5]/div/div[17]/div[3]/button")).click();
+        int size = driver.findElements(By.tagName("iframe")).size();
+        System.out.println(size + "iframe present");
+        List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
+        System.out.println("Total number of iframes are " + iframeElements.size());
+        driver.switchTo().frame(0);
+        driver.findElement(By.xpath("//*[@id=\"10437\"]")).click();
 
 
 
