@@ -1,16 +1,21 @@
 package SeleniumLearning;
-import java.lang.System.*;
-import java.util.List;
+
+
+
 
 import common.configuration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+import java.util.Iterator;
+import java.util.Set;
+
 
 public class gameWindow {
 
-    public static  void main (String [] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get(configuration.TEST_URL);
@@ -28,14 +33,25 @@ public class gameWindow {
         List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
         System.out.println("Total number of iframes are " + iframeElements.size());
         driver.switchTo().frame(0);
-        driver.findElement(By.xpath("//*[@id=\"10437\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"10430\"]")).click();
+
+        // code for switching between windows
+        //driver.findElement(By.xpath("//*[@id=\"dynamic_common_message\"]/div/div/div[3]/ul/li/div/span[2]/a/button"));
+        String mainWindowHandle = driver.getWindowHandle();
+        System.out.println(mainWindowHandle);
+        Set<String> allWindowHandles = driver.getWindowHandles();
+        Iterator<String> it = allWindowHandles.iterator();
+        while(it.hasNext()) {
+            String childWindow = it.next();
+            System.out.println(childWindow);
+            if (!mainWindowHandle.equalsIgnoreCase(childWindow)) {
+                driver.switchTo().window(childWindow);
+                driver.findElement(By.linkText("OK"));
+            }
 
 
-
+        }
 
 
     }
-
-
-
 }

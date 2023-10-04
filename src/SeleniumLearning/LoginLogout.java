@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Keys;
 
+import java.util.Iterator;
+import java.util.Set;
+
 
 class LoginLogout{
 
@@ -38,7 +41,7 @@ class LoginLogout{
 
         // code for switching between windows
         //driver.findElement(By.xpath("//*[@id=\"dynamic_common_message\"]/div/div/div[3]/ul/li/div/span[2]/a/button"));
-        /*String mainWindowHandle =driver.getWindowHandle();
+        String mainWindowHandle =driver.getWindowHandle();
         System.out.println(mainWindowHandle);
         Set<String> allWindowHandles = driver.getWindowHandles();
         Iterator<String> it = allWindowHandles.iterator();
@@ -50,7 +53,7 @@ class LoginLogout{
                 driver.switchTo().window(childWindow);
                 driver.findElement(By.linkText("OK"));
             }
-        }*/
+        }
 
         driver.quit();
 
