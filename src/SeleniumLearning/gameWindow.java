@@ -34,19 +34,23 @@ public class gameWindow {
         System.out.println("Total number of iframes are " + iframeElements.size());
         driver.switchTo().frame(0);
         driver.findElement(By.xpath("//*[@id=\"10430\"]")).click();
+        Thread.sleep(4000);
 
         // code for switching between windows
         //driver.findElement(By.xpath("//*[@id=\"dynamic_common_message\"]/div/div/div[3]/ul/li/div/span[2]/a/button"));
         String mainWindowHandle = driver.getWindowHandle();
-        System.out.println(mainWindowHandle);
+        System.out.println("parentwindow" +mainWindowHandle);
         Set<String> allWindowHandles = driver.getWindowHandles();
         Iterator<String> it = allWindowHandles.iterator();
         while(it.hasNext()) {
             String childWindow = it.next();
-            System.out.println(childWindow);
+            System.out.println("childwindow is " + childWindow);
             if (!mainWindowHandle.equalsIgnoreCase(childWindow)) {
                 driver.switchTo().window(childWindow);
-                driver.findElement(By.linkText("OK"));
+                System.out.println(childWindow);
+                Thread.sleep(4000);
+                driver.close();
+
             }
 
 
