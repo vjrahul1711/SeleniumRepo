@@ -15,15 +15,15 @@ class LoginLogout{
     public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
-        driver.get(configuration.TEST_URL);
+        driver.get(configuration.TEST_URL_LIVE);
         driver.manage().window().maximize();
         Thread.sleep(6000);
 
         driver.findElement(By.id("wzrk-cancel")).click(); // Clicking on the popup button
         driver.findElement(By.linkText("LOGIN")).click(); //Clicking on the login
         driver.findElement(By.linkText("Login with password instead")).click();
-        driver.findElement(By.cssSelector("input[id=lusername]")).sendKeys(configuration.USER_NAME);
-        driver.findElement(By.cssSelector("input[id=lpassword]")).sendKeys(configuration.PASSWORD);
+        driver.findElement(By.cssSelector("input[id=lusername]")).sendKeys(configuration.USER_NAME_LIVE);
+        driver.findElement(By.cssSelector("input[id=lpassword]")).sendKeys(configuration.PASSWORD_LIVE);
         driver.findElement(By.cssSelector("button[type=submit]")).click();
         Thread.sleep(4000);
 
