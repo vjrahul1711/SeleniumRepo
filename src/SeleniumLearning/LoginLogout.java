@@ -39,7 +39,7 @@ class LoginLogout{
 
 
 
-        // code for switching between windows
+        /* code for switching between windows
         //driver.findElement(By.xpath("//*[@id=\"dynamic_common_message\"]/div/div/div[3]/ul/li/div/span[2]/a/button"));
         String mainWindowHandle =driver.getWindowHandle();
         System.out.println(mainWindowHandle);
@@ -54,7 +54,7 @@ class LoginLogout{
                 driver.findElement(By.linkText("OK"));
             }
         }
-
+        */
         driver.quit();
 
     }
