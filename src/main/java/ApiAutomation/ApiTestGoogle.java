@@ -1,4 +1,4 @@
-package SeleniumLearning;
+package ApiAutomation;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -76,6 +76,7 @@ public class ApiTestGoogle {
         assertEquals(newAddress, ExpectedAddress);
 
         // Delete Place API
+        System.out.println("***Delete place started***");
 
         String DeleteResponse = given().queryParam("key", "qaclick123").header("Content-Type", "application/json").
                 body("{\n" +
